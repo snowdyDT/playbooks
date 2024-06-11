@@ -34,7 +34,7 @@ def main():
     )
 
     result = playbook_executor.run()
-    print(f'Playbook выполнен с кодом: {result}')
+    print(f'Result: {result}')
 
 
 if __name__ == '__main__':
