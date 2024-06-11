@@ -1,0 +1,11 @@
+---
+- name: Install python library
+  hosts: "{{ lookup('env', 'HOSTS') }}"
+
+  tasks:
+    - name: Install/Update python library
+      ansible.windows.win_powershell:
+        script: |
+          Set-Location -Path "{{ lookup('env', 'PYTHON_VENV_PATH') }}"
+          .\Scripts\activate
+          pip install --default-timeout=100 --upgrade --upgrade-strategy eager "{{ lookup('env', 'PYTHON_LIBRARY') }}"
